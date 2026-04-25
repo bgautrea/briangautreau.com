@@ -1,0 +1,65 @@
+---
+interface Props {
+  company: string;
+  title: string;
+  location: string;
+  start: string;
+  end?: string;
+  summary: string;
+  highlights: string[];
+  url?: string;
+}
+const { company, title, location, start, end, summary, highlights, url } = Astro.props;
+const range = end ? `${start} to ${end}` : `${start} to present`;
+const isCurrent = !end;
+---
+<article class="entry">
+  <div class="meta">
+    <span class="years">{range}</span>
+    <span class="loc">{location}</span>
+    {isCurrent && <span class="pill">Current</span>}
+  </div>
+  <div class="body">
+    <h3>{title}</h3>
+    <p class="co">{url ? <a href={url}>{company}</a> : company}</p>
+    <p class="summary">{summary}</p>
+    <ul>
+      {highlights.map((h) => <li>{h}</li>)}
+    </ul>
+  </div>
+</article>
+
+<style>
+  .entry {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--s-6);
+    padding: var(--s-6) 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .entry:first-of-type { border-top: 0; padding-top: 0; }
+  .meta { color: var(--ink-soft); font-size: var(--fs-small); }
+  .years { display: block; font-family: var(--mono); color: var(--ink); margin-bottom: 4px; }
+  .loc { display: block; }
+  .pill {
+    display: inline-block;
+    margin-top: var(--s-3);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 8px;
+    border-radius: 99px;
+    font-weight: 500;
+  }
+  h3 { margin: 0 0 var(--s-2); }
+  .co { color: var(--ink-soft); font-size: var(--fs-small); margin: 0 0 var(--s-3); }
+  .co a { color: var(--accent); }
+  .summary { margin: 0 0 var(--s-3); max-width: 65ch; }
+  ul { padding-left: var(--s-4); list-style: disc; }
+  ul li { margin-bottom: var(--s-2); max-width: 65ch; }
+  @media (max-width: 720px) {
+    .entry { grid-template-columns: 1fr; gap: var(--s-3); }
+  }
+</style>

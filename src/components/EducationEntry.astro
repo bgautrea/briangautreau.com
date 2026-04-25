@@ -1,0 +1,27 @@
+---
+interface Props { school: string; degree: string; years: string; }
+const { school, degree, years } = Astro.props;
+---
+<li class="row">
+  <span class="school">{school}</span>
+  <span class="degree">{degree}</span>
+  <span class="years">{years}</span>
+</li>
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 160px;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .row:first-child { border-top: 0; }
+  .school { font-weight: 500; }
+  .degree { color: var(--ink-soft); }
+  .years { font-family: var(--mono); font-size: var(--fs-small); color: var(--ink-soft); text-align: right; }
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 1fr; gap: var(--s-1); }
+    .years { text-align: left; }
+  }
+</style>

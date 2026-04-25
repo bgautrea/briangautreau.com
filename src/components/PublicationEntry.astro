@@ -1,0 +1,25 @@
+---
+interface Props { title: string; publisher: string; year: number; url?: string; }
+const { title, publisher, year, url } = Astro.props;
+---
+<li class="row">
+  <span class="title">{url ? <a href={url}>{title}</a> : title}</span>
+  <span class="meta">{publisher}, {year}</span>
+</li>
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .row:first-child { border-top: 0; }
+  .title { font-size: var(--fs-body); }
+  .meta { font-family: var(--mono); font-size: var(--fs-small); color: var(--ink-soft); text-align: right; }
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 1fr; gap: var(--s-1); }
+    .meta { text-align: left; }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+interface Props { number: string; title: string; issued: string; url?: string; }
+const { number, title, issued, url } = Astro.props;
+---
+<li class="row">
+  <span class="num">{url ? <a href={url}>{number}</a> : number}</span>
+  <span class="title">{title}</span>
+  <span class="when">{issued}</span>
+</li>
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 160px 1fr 100px;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .row:first-child { border-top: 0; }
+  .num { font-family: var(--mono); font-size: var(--fs-small); color: var(--accent); }
+  .num a { color: inherit; border-bottom: 0; }
+  .num a:hover { color: var(--accent-soft); }
+  .title { font-size: var(--fs-body); }
+  .when { font-family: var(--mono); font-size: var(--fs-small); color: var(--ink-soft); text-align: right; }
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 1fr; gap: var(--s-1); }
+    .when { text-align: left; }
+  }
+</style>
