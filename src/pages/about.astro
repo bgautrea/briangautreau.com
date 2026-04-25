@@ -1,0 +1,79 @@
+---
+import Layout from '../components/Layout.astro';
+import Headshot from '../components/Headshot.astro';
+---
+<Layout title="About · Brian Gautreau" description="A short personal essay: who I am, where Cedar Park fits in, and what I do outside the day job.">
+  <article class="page">
+    <p class="eyebrow">About</p>
+    <div class="intro">
+      <div class="prose">
+        <h1>The shape of the work has always been the same.</h1>
+        <p>Take a complex platform. Make it land safely in someone else's hands. That is what I have been doing for twenty-nine years, first at Dell as a technical architect on the solutions engineering side, now at F5 in the seat of a Senior Solutions Engineer dedicated to the United States Army.</p>
+        <p>I live in Cedar Park, Texas. Most weeks involve more conversations than code: with program offices, with platform owners, with engineers who have to live with whatever architecture survives the meeting. The favorite ones still come down to the same small set of questions. What does the customer actually need. What is the simplest design that gives it to them. Where will it break first.</p>
+      </div>
+      <div class="portrait">
+        <Headshot width={440} />
+      </div>
+    </div>
+
+    <section class="outside">
+      <h2>Outside work</h2>
+
+      <div class="block">
+        <p class="eyebrow">Endurance</p>
+        <p>Running and triathlon. The training is the point as much as the racing. Cedar Park is good for both.</p>
+      </div>
+
+      <div class="block">
+        <p class="eyebrow">The aquarium</p>
+        <p>Fish keeping. There is something honest about a tank: the system either works or it does not, and the fish will tell you which.</p>
+      </div>
+
+      <div class="block">
+        <p class="eyebrow">The print bed</p>
+        <p>3D printing. Mostly functional parts, occasional vanity. The printer is a useful daily reminder that the gap between idea and physical object is now small.</p>
+      </div>
+
+      <div class="block">
+        <p class="eyebrow">The markets</p>
+        <p>Active in equities, options, and the slow study of how capital actually moves. A long-running side education.</p>
+      </div>
+
+      <div class="block">
+        <p class="eyebrow">The keyboard</p>
+        <p>Building software with AI tooling. This site is one of those projects. There are more on <a href="/building">/building</a>.</p>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--s-9) var(--s-6) var(--s-8); }
+  .eyebrow { margin-bottom: var(--s-3); }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: var(--s-7);
+    align-items: start;
+    margin-bottom: var(--s-9);
+  }
+  .prose h1 { margin-bottom: var(--s-5); max-width: 18ch; }
+  .prose p { color: var(--ink); margin-bottom: var(--s-4); max-width: 60ch; font-size: 18px; line-height: 1.55; }
+  .prose p:last-child { margin-bottom: 0; }
+  .portrait { padding-top: var(--s-3); }
+
+  .outside {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--s-8);
+  }
+  .outside h2 { margin-bottom: var(--s-7); }
+  .block { margin-bottom: var(--s-6); max-width: 60ch; }
+  .block .eyebrow { color: var(--accent); margin-bottom: var(--s-2); }
+  .block p:not(.eyebrow) { color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .intro { grid-template-columns: 1fr; }
+    .portrait { order: -1; max-width: 320px; }
+  }
+</style>
