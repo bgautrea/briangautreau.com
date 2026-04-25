@@ -1,0 +1,59 @@
+@import './tokens.css';
+
+@page {
+  size: letter;
+  margin: 0.75in 0.6in;
+}
+
+html, body {
+  background: white;
+  color: black;
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  line-height: 1.4;
+}
+
+.page { max-width: none; margin: 0; padding: 0; }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: black;
+  margin: 0;
+}
+h1 { font-size: 22pt; line-height: 1.05; margin-bottom: 6pt; }
+h2 { font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; padding-bottom: 3pt; border-bottom: 0.5pt solid #999; }
+h3 { font-size: 11pt; margin-bottom: 2pt; }
+
+p { margin: 0 0 4pt; }
+a { color: black; text-decoration: none; border: 0; }
+
+.eyebrow { font-size: 8pt; letter-spacing: 0.10em; text-transform: uppercase; color: #666; margin-bottom: 4pt; }
+.lede { color: #333; max-width: none; font-size: 11pt; }
+.actions, .pill { display: none; }
+header.head { padding: 0 0 6pt; border-bottom: 0.5pt solid #999; margin-bottom: 10pt; }
+
+article.entry {
+  display: grid;
+  grid-template-columns: 1.2in 1fr;
+  gap: 12pt;
+  padding: 6pt 0;
+  border-top: 0.25pt solid #ccc;
+  page-break-inside: avoid;
+}
+article.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry .meta { color: #555; font-size: 9pt; }
+.entry .years { display: block; font-family: var(--mono); color: black; }
+.entry .co { color: #555; font-size: 9.5pt; margin-bottom: 4pt; }
+.entry .summary { font-size: 10pt; max-width: none; }
+.entry ul { padding-left: 12pt; margin: 4pt 0 0; }
+.entry ul li { margin-bottom: 2pt; max-width: none; font-size: 10pt; }
+
+.rows .row { display: grid; padding: 3pt 0; border-top: 0.25pt solid #ccc; }
+.rows .row:first-child { border-top: 0; }
+
+footer, header > div { display: none; }
+
+@media print {
+  .skip-link { display: none; }
+}
