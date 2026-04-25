@@ -1,0 +1,48 @@
+---
+import Layout from '../components/Layout.astro';
+
+const channels = [
+  { label: 'Email',    value: 'brian.gautreau@gmail.com', href: 'mailto:brian.gautreau@gmail.com' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/briangautreau', href: 'https://www.linkedin.com/in/briangautreau/' },
+  { label: 'GitHub',   value: 'github.com/bgautrea', href: 'https://github.com/bgautrea' },
+];
+---
+<Layout title="Contact · Brian Gautreau" description="Email, LinkedIn, and GitHub. Direct messages welcome.">
+  <article class="page">
+    <header class="head">
+      <p class="eyebrow">Contact</p>
+      <h1>Direct.</h1>
+      <p class="lede">Email is fastest. LinkedIn works for anything that needs context. GitHub for code.</p>
+    </header>
+    <ul class="channels">
+      {channels.map((c) => (
+        <li>
+          <span class="label">{c.label}</span>
+          <a href={c.href}>{c.value}</a>
+        </li>
+      ))}
+    </ul>
+  </article>
+</Layout>
+
+<style>
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--s-9) var(--s-6) var(--s-8); }
+  .head { padding-bottom: var(--s-7); border-bottom: 1px solid var(--rule); margin-bottom: var(--s-7); }
+  .eyebrow { margin-bottom: var(--s-3); }
+  h1 { margin-bottom: var(--s-4); }
+  .lede { color: var(--ink-soft); font-size: 18px; line-height: 1.55; max-width: 60ch; }
+  .channels { display: grid; gap: var(--s-4); max-width: 60ch; }
+  .channels li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .channels li:first-child { border-top: 0; }
+  .label { font-family: var(--mono); font-size: var(--fs-small); color: var(--ink-soft); }
+  @media (max-width: 540px) {
+    .channels li { grid-template-columns: 1fr; gap: var(--s-1); }
+  }
+</style>
