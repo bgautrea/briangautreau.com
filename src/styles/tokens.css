@@ -1,0 +1,51 @@
+:root {
+  /* Color - Restrained: tinted neutrals + one sienna accent under 10% surface. OKLCH only. */
+  --bg:          oklch(96% 0.012 75);
+  --surface:     oklch(94% 0.014 75);
+  --rule:        oklch(85% 0.012 75);
+  --rule-soft:   oklch(90% 0.010 75);
+  --ink:         oklch(22% 0.020 60);
+  --ink-soft:    oklch(45% 0.015 60);
+  --ink-mute:    oklch(60% 0.012 60);
+  --accent:      oklch(48% 0.135 55);
+  --accent-soft: oklch(62% 0.110 55);
+
+  /* Typography */
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Spacing - 4px base */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+  --s-9: 96px; --s-10: 128px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 220ms;
+  --t-page: 240ms;
+
+  /* Type scale (size / line-height) */
+  --fs-display: 64px;
+  --fs-h2: 40px;
+  --fs-h3: 26px;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-eyebrow: 12px;
+  --fs-mono: 14px;
+
+  --lh-display: 1.0;
+  --lh-h2: 1.1;
+  --lh-h3: 1.2;
+  --lh-body: 1.6;
+  --lh-small: 1.5;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --fs-display: 44px;
+    --fs-h2: 30px;
+    --fs-h3: 22px;
+    --fs-body: 16px;
+  }
+}
