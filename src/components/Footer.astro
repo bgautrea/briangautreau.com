@@ -1,0 +1,41 @@
+---
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap">
+    <p class="line">
+      <span>© {year} Brian Gautreau</span>
+      <span class="dot">·</span>
+      <span>Cedar Park, Texas</span>
+    </p>
+    <p class="line meta">
+      <span>Built with Astro, deployed to Kubernetes.</span>
+      <span class="dot">·</span>
+      <a href="https://github.com/bgautrea/briangautreau.com">Source</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--rule-soft);
+    margin-top: var(--s-10);
+    padding: var(--s-6) 0;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--s-6);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+  .line { color: var(--ink-soft); font-size: var(--fs-small); }
+  .meta { color: var(--ink-mute); }
+  .dot { margin: 0 var(--s-2); color: var(--ink-mute); }
+  a { color: var(--accent); }
+  @media (max-width: 540px) {
+    .wrap { padding: 0 var(--s-4); flex-direction: column; }
+  }
+</style>

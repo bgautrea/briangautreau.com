@@ -1,0 +1,69 @@
+---
+import '../styles/fonts.css';
+import '../styles/globals.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = 'Brian Gautreau. Senior Solutions Engineer at F5. 29 years shipping enterprise infrastructure.', ogImage = '/og.png' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" as="font" href="/fonts/fraunces-variable.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/inter-variable.woff2" type="font/woff2" crossorigin />
+
+    <ViewTransitions />
+
+    <style is:global>
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 240ms;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      ::view-transition-old(root) { animation-name: bg-fade-out; }
+      ::view-transition-new(root) { animation-name: bg-fade-in; }
+      @keyframes bg-fade-out {
+        to { opacity: 0; transform: translateY(-4px); }
+      }
+      @keyframes bg-fade-in {
+        from { opacity: 0; transform: translateY(8px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        ::view-transition-old(root), ::view-transition-new(root) {
+          animation-name: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
