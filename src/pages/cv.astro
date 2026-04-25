@@ -1,0 +1,55 @@
+---
+import Layout from '../components/Layout.astro';
+import WorkEntry from '../components/WorkEntry.astro';
+import PatentEntry from '../components/PatentEntry.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import EducationEntry from '../components/EducationEntry.astro';
+import work from '../content/cv/work';
+import patents from '../content/cv/patents';
+import publications from '../content/cv/publications';
+import education from '../content/cv/education';
+---
+<Layout title="CV · Brian Gautreau" description="Senior Solutions Engineer at F5. 29 years across Dell and F5 in enterprise infrastructure.">
+  <article class="page">
+    <header class="head">
+      <p class="eyebrow">Curriculum vitae</p>
+      <h1>Brian Gautreau</h1>
+      <p class="lede">Senior Solutions Engineer at F5, dedicated to the United States Army account. Twenty-nine years across Dell and F5 building, deploying, and selling enterprise infrastructure.</p>
+      <p class="actions">
+        <a href="/cv.pdf" download>Download PDF</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Experience</h2>
+      {work.map((w) => <WorkEntry {...w} />)}
+    </section>
+
+    <section>
+      <h2>Patents</h2>
+      <ul class="rows">{patents.map((p) => <PatentEntry {...p} />)}</ul>
+    </section>
+
+    <section>
+      <h2>Selected publications</h2>
+      <ul class="rows">{publications.map((p) => <PublicationEntry {...p} />)}</ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul class="rows">{education.map((e) => <EducationEntry {...e} />)}</ul>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--s-9) var(--s-6) var(--s-8); }
+  .head { padding-bottom: var(--s-7); border-bottom: 1px solid var(--rule); margin-bottom: var(--s-8); }
+  .eyebrow { margin-bottom: var(--s-3); }
+  h1 { margin-bottom: var(--s-4); }
+  .lede { color: var(--ink-soft); max-width: 60ch; font-size: 18px; line-height: 1.55; margin: 0 0 var(--s-5); }
+  .actions a { font-family: var(--mono); font-size: var(--fs-small); }
+  section { margin-top: var(--s-9); }
+  section h2 { margin-bottom: var(--s-5); padding-bottom: var(--s-3); border-bottom: 1px solid var(--rule); }
+  .rows { display: block; }
+</style>
