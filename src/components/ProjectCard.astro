@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+  blurb: string;
+  status: 'shipping' | 'active' | 'archived' | 'experiment';
+  url?: string;
+  repo?: string;
+  stack: string[];
+}
+const { title, blurb, status, url, repo, stack } = Astro.props;
+---
+<article class="proj">
+  <header>
+    <h2>{title}</h2>
+    <span class={`status status-${status}`}>{status}</span>
+  </header>
+  <p class="blurb">{blurb}</p>
+  <ul class="stack">
+    {stack.map((s) => <li>{s}</li>)}
+  </ul>
+  <p class="links">
+    {url && <a href={url}>Visit →</a>}
+    {url && repo && <span class="sep">·</span>}
+    {repo && <a href={repo}>Source</a>}
+  </p>
+</article>
+
+<style>
+  .proj {
+    padding: var(--s-6) 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .proj:first-of-type { border-top: 0; padding-top: 0; }
+  header { display: flex; align-items: baseline; gap: var(--s-4); margin-bottom: var(--s-3); }
+  h2 { font-size: 28px; margin: 0; }
+  .status {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 99px;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+  }
+  .status-shipping { color: var(--accent); border-color: var(--accent); }
+  .blurb { color: var(--ink-soft); margin-bottom: var(--s-4); max-width: 65ch; }
+  .stack { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-bottom: var(--s-4); }
+  .stack li {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 3px 8px;
+    background: var(--surface);
+    color: var(--ink-soft);
+    border-radius: 3px;
+  }
+  .links { font-family: var(--mono); font-size: var(--fs-small); }
+  .sep { color: var(--ink-mute); margin: 0 var(--s-2); }
+</style>
