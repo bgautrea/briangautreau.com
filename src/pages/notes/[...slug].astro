@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import Prose from '../../components/Prose.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => import.meta.env.PROD ? !data.draft : true);
+  return notes.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(entry.data.date);
+---
+<Layout title={`${entry.data.title} · Brian Gautreau`} description={entry.data.summary}>
+  <article class="page">
+    <header>
+      <p class="eyebrow"><a href="/notes">Notes</a></p>
+      <h1>{entry.data.title}</h1>
+      <p class="when">{fmt}</p>
+    </header>
+    <Prose>
+      <Content />
+    </Prose>
+  </article>
+</Layout>
+
+<style>
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--s-9) var(--s-6) var(--s-8); }
+  header { margin-bottom: var(--s-7); padding-bottom: var(--s-5); border-bottom: 1px solid var(--rule-soft); }
+  .eyebrow { margin-bottom: var(--s-3); }
+  .eyebrow a { color: var(--ink-soft); border-bottom: 0; }
+  .eyebrow a:hover { color: var(--accent); }
+  h1 { max-width: 22ch; margin-bottom: var(--s-3); }
+  .when { font-family: var(--mono); font-size: var(--fs-small); color: var(--ink-soft); }
+</style>

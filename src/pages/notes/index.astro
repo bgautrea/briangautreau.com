@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import NoteCard from '../../components/NoteCard.astro';
+
+const all = await getCollection('notes', ({ data }) => import.meta.env.PROD ? !data.draft : true);
+const notes = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<Layout title="Notes · Brian Gautreau" description="Irregular writing on infrastructure, building, and the markets.">
+  <article class="page">
+    <header class="head">
+      <p class="eyebrow">Notes</p>
+      <h1>Irregular writing.</h1>
+      <p class="lede">On where infrastructure is going, what I am building, and what is happening in the markets. No schedule.</p>
+    </header>
+    <section>
+      {notes.length === 0
+        ? <p class="empty">Nothing published yet. Soon.</p>
+        : notes.map((n) => <NoteCard slug={n.slug} title={n.data.title} date={n.data.date} summary={n.data.summary} />)
+      }
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--s-9) var(--s-6) var(--s-8); }
+  .head { padding-bottom: var(--s-7); border-bottom: 1px solid var(--rule); margin-bottom: var(--s-7); }
+  .eyebrow { margin-bottom: var(--s-3); }
+  h1 { margin-bottom: var(--s-4); max-width: 18ch; }
+  .lede { color: var(--ink-soft); font-size: 18px; line-height: 1.55; max-width: 60ch; }
+  .empty { color: var(--ink-soft); padding: var(--s-7) 0; }
+</style>
