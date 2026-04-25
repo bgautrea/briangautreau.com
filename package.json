@@ -1,0 +1,29 @@
+{
+  "name": "briangautreau-com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prebuild": "node scripts/render-pdf.mjs",
+    "lint:html": "html-validate dist/**/*.html"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "astro": "^4.16.19",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9",
+    "zod": "^3.25.76"
+  }
+}
