@@ -1,0 +1,70 @@
+---
+import Layout from '../components/Layout.astro';
+
+const cards = [
+  { href: '/cv',       eyebrow: 'Work',     title: 'The CV',           blurb: 'Twenty-nine years across Dell and F5.' },
+  { href: '/about',    eyebrow: 'Person',   title: 'Outside the work', blurb: 'Cedar Park, the aquarium, the print bed.' },
+  { href: '/building', eyebrow: 'Builder',  title: 'What I am making', blurb: 'Side projects shipped with AI tooling.' },
+  { href: '/notes',    eyebrow: 'Writing',  title: 'Notes',            blurb: 'Where infrastructure is going, irregularly.' },
+];
+---
+<Layout title="Brian Gautreau" description="Senior Solutions Engineer at F5. Builder. Cedar Park, Texas.">
+  <section class="hero">
+    <p class="eyebrow">Cedar Park, Texas</p>
+    <h1>Brian Gautreau.</h1>
+    <p class="lede">Senior Solutions Engineer at F5 on the United States Army account. Twenty-nine years bringing enterprise infrastructure into customers' hands. Building software on the side, with help from a model that did not exist a few years ago.</p>
+  </section>
+
+  <section class="cards">
+    {cards.map((c) => (
+      <a class="card" href={c.href}>
+        <p class="eyebrow">{c.eyebrow}</p>
+        <h2>{c.title}</h2>
+        <p class="blurb">{c.blurb}</p>
+        <span class="more">Read →</span>
+      </a>
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: var(--s-10) var(--s-6) var(--s-9);
+  }
+  .hero .eyebrow { margin-bottom: var(--s-4); }
+  .hero h1 { margin-bottom: var(--s-5); max-width: 14ch; }
+  .lede { color: var(--ink-soft); max-width: 56ch; font-size: 20px; line-height: 1.5; }
+
+  .cards {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--s-6) var(--s-9);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-5);
+  }
+  .card {
+    display: block;
+    padding: var(--s-6);
+    background: var(--surface);
+    border: 0;
+    border-radius: 6px;
+    color: var(--ink);
+    transition: transform var(--t-fast) var(--ease-out), background var(--t-fast) var(--ease-out);
+  }
+  .card:hover {
+    background: oklch(92% 0.018 75);
+    transform: translateY(-2px);
+  }
+  .card .eyebrow { color: var(--accent); margin-bottom: var(--s-3); }
+  .card h2 { font-size: 28px; line-height: 1.1; margin-bottom: var(--s-3); }
+  .card .blurb { color: var(--ink-soft); margin-bottom: var(--s-5); }
+  .card .more { font-family: var(--mono); font-size: var(--fs-small); color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: 1fr; }
+    .hero { padding: var(--s-8) var(--s-4) var(--s-7); }
+  }
+</style>
