@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test artifacts
+coverage/
+.lighthouseci/
+playwright-report/
+test-results/
+
+# Brainstorming companion (local-only)
+.superpowers/
+
+# Local kube context (never check this in)
+.kube/
