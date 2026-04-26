@@ -19,11 +19,11 @@ const data = [
     location: 'Cedar Park, TX',
     start: '2013',
     end: '2019',
-    summary: "Worked closely with a peer Account Executive to support and grow the Software Networking business with Cloud Service Providers across the Central and Eastern United States and Latin America. Supported sales of Virtual ADC (load balancing), Virtual WAF (Web Application Firewall), Virtual Router, SDN Controller, and SDN applications.",
+    summary: "Sales Engineer for the Brocade Software Networking business unit, supporting Cloud Service Providers across the Central and Eastern United States and Latin America.",
     highlights: [
-      'Achieved over 210% of quota in FY16 with revenue exceeding $5M, by growing existing Service Providers and adding new ones.',
-      'Delivered product presentations and demos to customers and prospects from the Brocade Software Networking portfolio.',
-      'Worked closely with Product Management and Engineering to add features based on customer requests, including Transparent Caching and Direct Server Return, plus enhancements such as phone-home improvements and tuning of high-availability timers.',
+      'Exceeded 210% of FY16 quota; $5M+ in Software Networking revenue.',
+      'Covered the Software Networking portfolio: Virtual ADC, Virtual WAF, Virtual Router, SDN Controller, SDN applications.',
+      'Drove customer-requested features into the product: Transparent Caching, Direct Server Return, phone-home improvements, HA timer tuning.',
     ],
   },
   {
