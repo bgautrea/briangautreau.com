@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: default
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "False"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: briangautreau.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: briangautreau-com-svc
+                port:
+                  number: 80
+  tls: null
