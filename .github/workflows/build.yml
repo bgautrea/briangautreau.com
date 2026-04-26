@@ -76,6 +76,8 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
+          provenance: mode=max
+          sbom: true
           tags: |
             docker.io/bgautrea/briangautreau-com:${{ steps.sha.outputs.short }}
             docker.io/bgautrea/briangautreau-com:latest

@@ -7,6 +7,10 @@ LABEL org.opencontainers.image.title="briangautreau-com"
 LABEL org.opencontainers.image.source="https://github.com/bgautrea/briangautreau.com"
 LABEL org.opencontainers.image.licenses="UNLICENSED"
 
+# Pull current Alpine package versions so each build picks up CVE fixes
+# even when the base tag has not been republished yet.
+RUN apk upgrade --no-cache
+
 # Replace the default site config with ours.
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
