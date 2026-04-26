@@ -23,9 +23,11 @@ const isCurrent = !end;
     <h3>{title}</h3>
     <p class="co">{url ? <a href={url}>{company}</a> : company}</p>
     <p class="summary">{summary}</p>
-    <ul>
-      {highlights.map((h) => <li>{h}</li>)}
-    </ul>
+    {highlights.length > 0 && (
+      <ul>
+        {highlights.map((h) => <li>{h}</li>)}
+      </ul>
+    )}
   </div>
 </article>
 

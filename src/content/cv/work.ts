@@ -14,16 +14,26 @@ const data = [
     ],
   },
   {
-    company: 'Dell',
-    title: 'Technical Architect, Solutions Engineering',
-    location: 'Round Rock, TX',
-    start: '2009',
+    company: 'Brocade / Riverbed',
+    title: 'Sales Engineer, Software Networking Business Unit',
+    location: 'Cedar Park, TX',
+    start: '2013',
     end: '2019',
-    summary: 'Solutions architect on the enterprise infrastructure side, focused on virtualization, private cloud, and reference designs.',
+    summary: "Worked closely with a peer Account Executive to support and grow the Software Networking business with Cloud Service Providers across the Central and Eastern United States and Latin America. Supported sales of Virtual ADC (load balancing), Virtual WAF (Web Application Firewall), Virtual Router, SDN Controller, and SDN applications.",
     highlights: [
-      'Authored eight reference architectures spanning Hyper-V, Xen, blade and storage, and private cloud. Used as field deployment blueprints.',
-      'Co-inventor on two issued US patents covering network device discovery and aggregated-system observability.',
+      'Achieved over 210% of quota in FY16 with revenue exceeding $5M, by growing existing Service Providers and adding new ones.',
+      'Delivered product presentations and demos to customers and prospects from the Brocade Software Networking portfolio.',
+      'Worked closely with Product Management and Engineering to add features based on customer requests, including Transparent Caching and Direct Server Return, plus enhancements such as phone-home improvements and tuning of high-availability timers.',
     ],
+  },
+  {
+    company: 'Dell, Junior Achievement, Exodus Communications',
+    title: 'Engineering, Support, Management, Consulting',
+    location: 'Various',
+    start: '1996',
+    end: '2010',
+    summary: 'Earlier career across engineering, technical support, management, and consulting roles.',
+    highlights: [],
   },
 ];
 
