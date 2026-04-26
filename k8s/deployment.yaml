@@ -19,8 +19,13 @@ spec:
       labels:
         app.kubernetes.io/name: briangautreau-com
     spec:
+      imagePullSecrets:
+        - name: dockerhub
       securityContext:
         runAsNonRoot: true
+        runAsUser: 101            # nginx user in nginx:alpine
+        runAsGroup: 101
+        fsGroup: 101
         seccompProfile:
           type: RuntimeDefault
       containers:

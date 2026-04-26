@@ -11,10 +11,10 @@ LABEL org.opencontainers.image.licenses="UNLICENSED"
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Allow nginx to run as non-root: rewrite the main config so PID lives in /tmp
-# and switch the listen port to 8080. Then chown the html directory.
-RUN sed -i 's|/var/run/nginx.pid|/tmp/nginx.pid|' /etc/nginx/nginx.conf \
- && sed -i 's|listen *80|listen 8080|' /etc/nginx/conf.d/default.conf \
+# Allow nginx to run as non-root: rewrite whichever pid directive ships with the
+# base image (the path varies between minor versions: /var/run/nginx.pid vs /run/nginx.pid).
+# (The site config already listens on 8080 via nginx.conf above.)
+RUN sed -i -E 's|^pid .*;|pid /tmp/nginx.pid;|' /etc/nginx/nginx.conf \
  && chown -R nginx:nginx /usr/share/nginx/html /var/cache/nginx /var/log/nginx /etc/nginx/conf.d \
  && touch /tmp/nginx.pid && chown nginx:nginx /tmp/nginx.pid
 
