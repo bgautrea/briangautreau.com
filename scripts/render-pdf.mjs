@@ -8,7 +8,7 @@ import { chromium } from 'playwright';
 
 const PORT = 4327;
 const URL  = `http://127.0.0.1:${PORT}/cv-print`;
-const OUT  = 'public/cv.pdf';
+const OUT  = 'public/brian_gautreau_cv.pdf';
 
 function killPort(port) {
   // Best-effort: kill anything bound to the port. Silent if nothing matches.
