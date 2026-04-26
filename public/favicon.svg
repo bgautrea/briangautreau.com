@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Brian Gautreau">
+  <rect width="32" height="32" rx="5" fill="#A35924"/>
+  <text x="16" y="22.5"
+        text-anchor="middle"
+        font-family="'Fraunces', Georgia, 'Iowan Old Style', 'Times New Roman', serif"
+        font-weight="700"
+        font-size="22"
+        fill="#F4EFE5">B</text>
+</svg>
