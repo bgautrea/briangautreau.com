@@ -1,0 +1,25 @@
+---
+import Layout from '../components/Layout.astro';
+---
+<Layout title="Something broke · Brian Gautreau" description="The server is having a moment.">
+  <section class="wrap">
+    <p class="eyebrow">500</p>
+    <h1>Something broke.</h1>
+    <p class="lede">Not your fault. The server hiccupped. Try reloading in a moment, or use one of these instead.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/notes">Notes</a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .wrap { max-width: 60ch; margin: 0 auto; padding: var(--s-10) var(--s-6); text-align: left; }
+  .eyebrow { color: var(--accent); margin-bottom: var(--s-3); }
+  h1 { margin-bottom: var(--s-4); }
+  .lede { color: var(--ink-soft); margin-bottom: var(--s-5); font-size: 18px; line-height: 1.55; }
+  ul { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  ul li a { font-family: var(--mono); font-size: var(--fs-small); }
+</style>
