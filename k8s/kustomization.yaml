@@ -8,4 +8,4 @@ resources:
 images:
 - name: briangautreau-com
   newName: docker.io/bgautrea/briangautreau-com
-  newTag: 4a1d40d821c9
+  newTag: c2db337c965f
