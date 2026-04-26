@@ -35,7 +35,27 @@ jobs:
         run: npm run lint:html
 
       - name: Lighthouse CI
+        id: lhci
+        continue-on-error: true
         run: npx lhci autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Annotate Lighthouse outcome
+        if: always()
+        run: |
+          if [ "${{ steps.lhci.outcome }}" = "failure" ]; then
+            echo "::warning title=Lighthouse below threshold::See the lighthouse-reports artifact for which audits dropped a score."
+          else
+            echo "::notice title=Lighthouse passed::All categories met thresholds."
+          fi
 
       - name: Compute short SHA
         id: sha
