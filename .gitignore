@@ -31,3 +31,6 @@ test-results/
 
 # Local kube context (never check this in)
 .kube/
+
+# Generated artifacts
+public/cv.pdf
