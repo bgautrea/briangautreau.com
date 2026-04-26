@@ -1,7 +1,7 @@
 # briangautreau.com - single-stage container.
 # The Astro build runs OUTSIDE this image (in CI or locally via `npm run build`).
 # This image only serves the produced dist/ directory.
-FROM nginx:1.27-alpine
+FROM nginx:1.30-alpine3.23
 
 LABEL org.opencontainers.image.title="briangautreau-com"
 LABEL org.opencontainers.image.source="https://github.com/bgautrea/briangautreau.com"
