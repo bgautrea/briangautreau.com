@@ -1,0 +1,26 @@
+.git
+.github
+node_modules
+.astro
+src
+public
+scripts
+tests
+docs
+k8s
+.superpowers
+.agents
+.claude
+*.md
+.env*
+.gitignore
+.dockerignore
+.npmrc
+package.json
+package-lock.json
+tsconfig.json
+astro.config.mjs
+
+# Allow only what the container needs
+!dist/
+!nginx.conf
