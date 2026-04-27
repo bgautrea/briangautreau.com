@@ -10,6 +10,6 @@ order: 20
 
 A multi-page parody site. Marketing chrome, team bios, press releases, governance proposals (QIPs), quarterly attestations, and a full disclosures page making clear the whole thing is fiction.
 
-The site is part of the demonstration. Static Astro builds into a small `nginx:alpine` image. Two replicas behind the cluster's `nginx.org` ingress controller. TLS terminates at an upstream nginx proxy that lives outside the cluster. CI builds and pushes the image; deploy is a single `kubectl apply` from a laptop. Content lives in typed collections — Zod schemas keep press, proposals, and attestations honest at build time.
+Same deployment shape as this site: static Astro into an `nginx:alpine` image, behind the cluster ingress, shipped by `kubectl apply`. Content lives in typed collections; Zod schemas keep press, proposals, and attestations honest at build time.
 
-Design language: cold institutional palette in OKLCH, a serif for display set against a clean sans for body, JetBrains Mono for tickers and tables. The visual joke is that it looks exactly like the bank-grade fintech sites it's parodying — restrained, monochrome, slightly humorless — until you read the words.
+Design language: cold institutional palette in OKLCH, a serif for display against a clean sans for body, JetBrains Mono for tickers and tables. It looks exactly like the bank-grade fintech sites it parodies: restrained, monochrome, slightly humorless. The joke is the words.
