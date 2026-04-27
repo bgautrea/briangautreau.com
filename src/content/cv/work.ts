@@ -19,7 +19,7 @@ const data = [
     location: 'Cedar Park, TX',
     start: '2013',
     end: '2019',
-    summary: "Sales Engineer for the Brocade Software Networking business unit, supporting Cloud Service Providers across the Central and Eastern United States and Latin America.",
+    summary: 'Sales Engineer for the Brocade Software Networking business unit, supporting Cloud Service Providers across the Central and Eastern United States and Latin America.',
     highlights: [
       'Exceeded 210% of FY16 quota; $5M+ in Software Networking revenue.',
       'Covered the Software Networking portfolio: Virtual ADC, Virtual WAF, Virtual Router, SDN Controller, SDN applications.',
