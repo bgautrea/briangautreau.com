@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
-// CV schemas — pure Zod, no Astro dependency, so tests can import them.
-// config.ts re-exports these and uses defineCollection() for the Markdown collections.
+// Pure Zod, no Astro dependency, so vitest can import these without resolving astro:content.
 
 export const workSchema = z.array(z.object({
   company: z.string(),
@@ -34,7 +33,6 @@ export const educationSchema = z.array(z.object({
   years: z.string(),
 }));
 
-// Frontmatter schemas (defined in pure Zod here; defineCollection wraps them)
 export const projectFrontmatter = z.object({
   title: z.string(),
   blurb: z.string(),
