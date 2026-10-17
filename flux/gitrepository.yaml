@@ -1,0 +1,20 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: briangautreau-com
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: ssh://git@github.com/bgautrea/briangautreau.com.git
+  ref:
+    branch: main
+  # ImageUpdateAutomation pushes the new tag back to this repo, so the deploy
+  # key needs WRITE access. GitHub scopes deploy keys to one repo, so this
+  # can't reuse flux-system or freetail-golf-auth. Created with:
+  #   flux create secret git briangautreau-com-auth \
+  #     --url=ssh://git@github.com/bgautrea/briangautreau.com.git \
+  #     --namespace=flux-system
+  # then add the printed public key under Settings -> Deploy keys with
+  # "Allow write access" checked.
+  secretRef:
+    name: briangautreau-com-auth

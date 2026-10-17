@@ -1,0 +1,16 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: briangautreau-com
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: briangautreau-com
+  # CI publishes main-<short-sha>-<unix-ts>. A sha has no ordering, so sort on
+  # the extracted timestamp. The bare-sha and `latest` tags are excluded.
+  filterTags:
+    pattern: '^main-[a-f0-9]+-(?P<ts>[0-9]+)$'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc

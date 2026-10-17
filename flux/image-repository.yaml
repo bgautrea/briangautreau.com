@@ -1,0 +1,12 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: briangautreau-com
+  namespace: flux-system
+spec:
+  image: docker.io/bgautrea/briangautreau-com
+  interval: 5m
+  # The Docker Hub repo is private; reuses the cluster's existing `dockerhub`
+  # secret, same as freetail-golf and watchlist-api.
+  secretRef:
+    name: dockerhub

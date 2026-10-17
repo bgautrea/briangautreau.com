@@ -1,0 +1,28 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: briangautreau-com
+  namespace: flux-system
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: briangautreau-com
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: fluxcdbot
+        email: fluxcdbot@users.noreply.github.com
+      # `.Changed` replaces the removed `.Updated`; the old field stalls the
+      # automation silently.
+      messageTemplate: |
+        chore(deploy): briangautreau-com {{range .Changed.Changes}}{{println .NewValue}}{{end}}
+    push:
+      branch: main
+  update:
+    strategy: Setters
+    # Only k8s/ is scanned for $imagepolicy markers.
+    path: ./k8s

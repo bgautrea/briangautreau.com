@@ -8,4 +8,4 @@ resources:
 images:
 - name: briangautreau-com
   newName: docker.io/bgautrea/briangautreau-com
-  newTag: e89783d2bd0e
+  newTag: e89783d2bd0e # {"$imagepolicy": "flux-system:briangautreau-com:tag"}

@@ -1,0 +1,19 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: briangautreau-com
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./k8s
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: briangautreau-com
+  wait: true
+  timeout: 5m
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: briangautreau-com
+      namespace: default
