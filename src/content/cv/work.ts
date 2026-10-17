@@ -2,15 +2,27 @@ import { workSchema } from '../schemas';
 
 const data = [
   {
+    company: 'Gautreau Nahas Capital Partners',
+    title: 'Founder',
+    location: 'Cedar Park, TX',
+    start: '2026',
+    summary: 'Founded a trading firm after leaving F5. Full time on quantitative, swing, and intraday strategies.',
+    highlights: [
+      'Trade options on equities and futures.',
+      'Build the research and execution stack in Rust and Python, with machine learning models and LLMs throughout the workflow.',
+    ],
+  },
+  {
     company: 'F5',
     title: 'Senior Solutions Engineer',
     location: 'Cedar Park, TX',
     start: '2019',
+    end: '2026',
     summary: 'Pre-sales technical lead across the F5 portfolio for the United States Army account.',
     highlights: [
-      'Cover the full F5 catalog: BIG-IP, NGINX, Distributed Cloud, application security.',
-      'Translate mission requirements into architectures spanning data center, edge, and cloud; partner with program offices through procurement and rollout.',
-      'Trusted advisor on application delivery, zero-trust patterns, and modernization paths for legacy workloads.',
+      'Covered the full F5 catalog: BIG-IP, NGINX, Distributed Cloud, application security.',
+      'Translated mission requirements into architectures spanning data center, edge, and cloud; partnered with program offices through procurement and rollout.',
+      'Served as trusted advisor on application delivery, zero-trust patterns, and modernization paths for legacy workloads.',
     ],
   },
   {
